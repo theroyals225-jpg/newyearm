@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mehak 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #ffe6f0, #fff);
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 105, 135, 0.4);
+    animation: pop 1s ease;
+    z-index: 2;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    color: #ff3366;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #4a001f;
+    min-height: 80px;
+    animation: fade 0.8s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+button:hover {
+    background: #ff1f4d;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 18px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+    <h1>🎆 New Year 2026 🎆</h1>
+    <p id="text">Hey Mehak 💕<br><br>I made something for you…</p>
+    <button onclick="next()">Click Me ❤️</button>
+</div>
+
+<script>
+let step = 0;
+
+function next() {
+    const text = document.getElementById("text");
+    const btn = document.querySelector("button");
+
+    text.style.animation = "none";
+    text.offsetHeight;
+    text.style.animation = "fade 0.8s ease";
+
+    if (step === 0) {
+        text.innerHTML = "You were my favourite part of 2025 🥺💖";
+        btn.innerHTML = "Next 💕";
+    }
+    else if (step === 1) {
+        text.innerHTML = "Every smile of yours meant everything to me 🤍";
+    }
+    else if (step === 2) {
+        text.innerHTML = "I wish you will always stay with me 🫶";
+    }
+    else if (step === 3) {
+        text.innerHTML = "I promise I’ll spend every New Year with you 🎆";
+    }
+    else {
+        text.innerHTML =
+            "✨ Happy New Year 2026 ✨<br><br>" +
+            "I love you so much Mehak ❤️<br><br>" +
+            "— Kamran 💖";
+        btn.style.display = "none";
+    }
+    step++;
+}
+
+// Create floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
